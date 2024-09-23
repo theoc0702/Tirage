@@ -15,7 +15,8 @@ function entrerEleve(nom, prenom) {
      };
      if (nom == "" && prenom == "")
         alert("remplir tous les champs")
-
+        eleve = ""
+        
     eleve.push(nouveauEleve); // Ajouter l'élève à la liste
     localStorage.setItem("eleves", JSON.stringify(eleve)); // Enregistrer dans localStorage
     afficherEleves(); // Mettre à jour l'affichage des élèves
