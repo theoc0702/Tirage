@@ -13,39 +13,38 @@ function entrerEleve(nom, prenom) {
          nom: nom,
          prenom: prenom,
      };
-     if (nom == "" && prenom == "")
-        alert("remplir tous les champs")
-        eleve = ""
-        
-    eleve.push(nouveauEleve); // Ajouter l'élève à la liste
-    localStorage.setItem("eleves", JSON.stringify(eleve)); // Enregistrer dans localStorage
-    afficherEleves(); // Mettre à jour l'affichage des élèves
+
+
+    eleve.push(nouveauEleve);       // Ajouter l'élève à la liste
+    localStorage.setItem("eleves", JSON.stringify(eleve));      // Enregistrer dans localStorage
+    afficherEleves();       // Mettre à jour l'affichage des élèves
     }
 
 
-    function chargerEleves() {//chager les eleves du localstorage
+    function chargerEleves() {          //chager les eleves du localstorage
         const elevesStockes = localStorage.getItem("eleves");
         if (elevesStockes) {
             const elevesArray = JSON.parse(elevesStockes);
             elevesArray.forEach(eleve => {
-                entrerEleve(eleve.nom, eleve.prenom); // Utiliser la fonction pour ajouter
+                entrerEleve(eleve.nom, eleve.prenom);           // Utiliser la fonction pour ajouter
             });
         }
     }
 
     
 function afficherEleves() {
-    const eleveListe = document.getElementById("eleveListe");
+    const eleveListe = document.getElementById("eleveListe"); //assigne à la variable eleveListe
     eleveListe.innerHTML = "";
 
-    eleve.forEach((el, index) => {
+    eleve.forEach((el, index) => { //parcours la liste
+        //creer "li" pour chaque élève
         const li = document.createElement("li");
         li.textContent = `${el.prenom} ${el.nom}`;
         eleveListe.appendChild(li);
     });
 }
 function viderListe() {
-    const confirmation = confirm("Vider toute la liste ?");
+    const confirmation = confirm("Vider toute la liste ?"); 
     if (confirmation) {
         eleve.length = 0;
         elevesTires.length = 0;
@@ -70,7 +69,7 @@ function tirerAuSort() {
     document.getElementById("tirage").textContent = `${eleveTire.prenom} ${eleveTire.nom} a été tiré.`;
     elevesTires.push(eleveTire);
 }
-document.addEventListener("DOMContentLoaded", chargerEleves);//appeler la fonction quicharge les eleves
+document.addEventListener("DOMContentLoaded", chargerEleves);           //appeler la fonction quicharge les eleves
 
 document.getElementById("eleveForm").addEventListener("submit", function(e) {
     e.preventDefault();
