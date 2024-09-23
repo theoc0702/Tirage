@@ -69,8 +69,8 @@ function tirerAuSort() {
     document.getElementById("tirage").textContent = `${eleveTire.prenom} ${eleveTire.nom} a été tiré.`;
     elevesTires.push(eleveTire);
 }
-document.addEventListener("DOMContentLoaded", chargerEleves);           //appeler la fonction quicharge les eleves
-
+//document.addEventListener("DOMContentLoaded", chargerEleves);           //appeler la fonction quicharge les eleves
+chargerEleves()
 document.getElementById("eleveForm").addEventListener("submit", function(e) {
     e.preventDefault();
     const nom = document.getElementById("nom").value;

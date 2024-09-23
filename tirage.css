@@ -139,7 +139,7 @@ input[type="text"]:focus {
 /* Style du tirage au sort */
 .tirage-result {
     font-size: 1.5rem;
-    color: #17a2b8;
+    color: #ffffff;
     margin-top: 20px;
     opacity: 0;
     animation: appear 1s forwards;
