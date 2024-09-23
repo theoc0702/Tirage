@@ -1,10 +1,9 @@
 const eleve = [];
-const elevesTires = []; // Liste des élèves déjà tirés
+const elevesTires = [];
 
 function entrerEleve(nom, prenom) {
         // Vérifier si l'élève est déjà dans la liste
     const eleveExistant = eleve.some(el => el.nom === nom && el.prenom === prenom);
-        
     if (eleveExistant) {
          alert("élève déjà enregistré");
          return; // Ne pas ajouter l'élève
@@ -14,6 +13,9 @@ function entrerEleve(nom, prenom) {
          nom: nom,
          prenom: prenom,
      };
+     if (nom == "" && prenom == "")
+        alert("remplir tous les champs")
+
     eleve.push(nouveauEleve); // Ajouter l'élève à la liste
     localStorage.setItem("eleves", JSON.stringify(eleve)); // Enregistrer dans localStorage
     afficherEleves(); // Mettre à jour l'affichage des élèves
