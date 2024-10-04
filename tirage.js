@@ -48,6 +48,7 @@ function viderListe() {
     if (confirmation) {
         eleve.length = 0;
         elevesTires.length = 0;
+        localStorage.setItem("eleves", JSON.stringify(eleve));
         afficherEleves();
         document.getElementById("tirage").textContent = "";
     }
@@ -69,8 +70,8 @@ function tirerAuSort() {
     document.getElementById("tirage").textContent = `${eleveTire.prenom} ${eleveTire.nom} a été tiré.`;
     elevesTires.push(eleveTire);
 }
-//document.addEventListener("DOMContentLoaded", chargerEleves);           //appeler la fonction quicharge les eleves
-chargerEleves()
+document.addEventListener("DOMContentLoaded", chargerEleves);           //appeler la fonction quicharge les eleves
+
 document.getElementById("eleveForm").addEventListener("submit", function(e) {
     e.preventDefault();
     const nom = document.getElementById("nom").value;
